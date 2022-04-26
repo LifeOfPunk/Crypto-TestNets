@@ -1,4 +1,4 @@
-
+# The guide is valid 26.04.22
 cd $HOME
 
 wget -O go1.17.1.linux-amd64.tar.gz https://golang.org/dl/go1.17.linux-amd64.tar.gz
