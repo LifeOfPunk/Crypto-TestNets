@@ -1,2 +1,2 @@
-# The actual nodes will be upload in the repository
+# The actual testnet nodes will be upload in the repository
 
