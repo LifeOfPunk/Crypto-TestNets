@@ -3,3 +3,4 @@
 
 # Please join DeFund's Finance Discord Channel https://discord.gg/WPUFANYM
 # to stay tuned
+# go to node.md to see the guide
