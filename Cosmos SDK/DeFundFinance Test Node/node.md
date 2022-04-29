@@ -115,6 +115,20 @@ curl -s localhost:26657/status
 
 Once synced `"catching_up": false`
 
+# if you will have "Dealing Peer" Issue in logs and you see that your node not getting new blocks then
+```bash
+sudo systemctl stop defund
+nano .defund/config/config.toml
+```
+After you need to find the line "persistent_peers"
+and then deleate from there your peers and past new ones below
+```bash
+79a1ca999264d15653e359742ecc696ff783e057@49.12.246.112:22256,5b10a67cad723fd13060761f8955f371fb1810a2@80.64.208.121:26656,cd3a17a6920bba732f1b2a4b3a12a435ac0845ac@49.12.225.248:26656,0409ad6d8ceef8ab01f4df458dbd58dd9ac32295@121.37.242.170:26656,6c80295b4c221e19cab7dfab496e9c15891f55ba@65.108.151.86:26656,2ef9373a0e8b5487b6fbf100d90faa641242899d@154.12.244.137:26656,1bf56637dcb950453c370ef7726da74436d21a61@95.214.52.200:26656,b9acccdd67617e15c361ea0d6fd2e16c1b9c9efc@209.145.48.178:26656,111ba4e5ae97d5f294294ea6ca03c17506465ec5@208.68.39.221:26656,0409ad6d8ceef8ab01f4df458dbd58dd9ac32295@121.37.242.170:26656
+```
+```bash
+sudo systemctl restart defund
+```
+
 Start to create new wallet, edit and fill your personal _wallet name_ instaed _$DEFUND_WALLET_
 ```bash
 defundd keys add $DEFUND_WALLET
