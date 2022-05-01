@@ -3,13 +3,13 @@ set up docker
 sudo -i
 apt update && apt install docker.io docker-compose -y
 ```
-you need to crate polkado's acc and save mnemnomic with password and wallet's name
+you need to create polkadot's acc and save mnemnomic with password and wallet's name
 https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffarm-rpc.subspace.network#/accounts
 
 set up your wallet's address that you just created and your node name
 ``` bash
-SUBSPACE_WALLET_ADDRESS="адрес для получения вознаграждения"
-SUBSPACE_NODE_NAME="имя вашей ноды"
+SUBSPACE_WALLET_ADDRESS="POLKADOT'S ADDRESSS"
+SUBSPACE_NODE_NAME="NODE NAME"
 ```
 
 just copy and paste (below)
