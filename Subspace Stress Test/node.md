@@ -1,4 +1,4 @@
-Устанавливаем docker:
+Устанавливаем docker
 ``` bash
 sudo -i
 apt update && apt install docker.io docker-compose -y
