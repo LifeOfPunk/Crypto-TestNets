@@ -1,31 +1,31 @@
-устанавливаем docker
+set up docker
 ``` bash
 sudo -i
 apt update && apt install docker.io docker-compose -y
 ```
-задаем переменные окружения с адресом и именем ноды. Адрес можно получить тут
+you need to crate polkado's acc and save mnemnomic with password and wallet's name
 https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffarm-rpc.subspace.network#/accounts
 
-в кавычках указываем свой адрес и произвольное имя ноды
+set up your wallet's address that you just created and your node name
 ``` bash
-SUBSPACE_NODE_NAME="имя вашей ноды"
+SUBSPACE_WALLET_ADDRESS="адрес для получения вознаграждения"
 SUBSPACE_NODE_NAME="имя вашей ноды"
 ```
 
-здесь ничего не меняем
+just copy and paste (below)
 ``` bash
 echo 'export SUBSPACE_WALLET_ADDRESS='$SUBSPACE_WALLET_ADDRESS >> $HOME/.bash_profile
 echo 'export SUBSPACE_NODE_NAME="'${SUBSPACE_NODE_NAME}'"' >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
-теперь нужно создать docker-compose.yml
+create  docker-compose.yml
 ``` bash
 mkdir $HOME/subspace
 cd $HOME/subspace
 ```
 
-весь блок вставляется в консоль целиком:
+the whole block copy and past
 ``` bash
 tee $HOME/subspace/docker-compose.yml > /dev/null <<EOF
 version: "3.7"
@@ -89,35 +89,34 @@ volumes:
 EOF
 ```
 
-запускаем
+launch
 ``` bash
 docker-compose up -d
 ```
 
-важно запускать команды из того же каталога где был создан файл docker-compose.yml.
-Поэтмоу прописывыес каждый раз
+it's important to run command from docker-compose.yml. so before check logs need to run the command below
 ``` bash
 cd $HOME/subspace
 ```
 
-просмотр Логов
+check logs
 ``` bash
 docker-compose logs --tail=1000 -f
 ```
 
-посмотреть подписанные блоки
+check signed blocks
 ``` bash
 docker-compse logs | grep "signed"
 ```
 
-телеметрию нод можно смотреит тут 
+you can check telemetria here
 https://telemetry.subspace.network/#/0x332ef6e751e25426e38996c51299dfc53bcd56f40b53dce2b2fc8442ae9c4a74
-Для этого просто прописываем название своей ноды
+you need just write down the name of your node
 
-токены будут капать на polkadot кошелек по указанному адресу
+you'll receive your subspace's tokens here
 https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffarm-rpc.subspace.network#/accounts
 
-удаление ноды (docker)
+deleate node (docker)
 ``` bash
 cd $HOME/subspace
 docker-compose down && docker volume rm $(docker volume ls -q | grep subspace)
