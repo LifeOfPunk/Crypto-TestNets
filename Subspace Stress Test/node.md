@@ -1,12 +1,12 @@
-Устанавливаем docker
+устанавливаем docker
 ``` bash
 sudo -i
 apt update && apt install docker.io docker-compose -y
 ```
-Задаем переменные окружения с адресом и именем ноды. Адрес можно получить тут
+задаем переменные окружения с адресом и именем ноды. Адрес можно получить тут
 https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffarm-rpc.subspace.network#/accounts
 
-В кавычках указываем свой адрес и произвольное имя ноды
+в кавычках указываем свой адрес и произвольное имя ноды
 ``` bash
 SUBSPACE_NODE_NAME="имя вашей ноды"
 SUBSPACE_NODE_NAME="имя вашей ноды"
@@ -89,35 +89,35 @@ volumes:
 EOF
 ```
 
-Запускаем
+запускаем
 ``` bash
 docker-compose up -d
 ```
 
-Важно запускать команды из того же каталога где был создан файл docker-compose.yml.
+важно запускать команды из того же каталога где был создан файл docker-compose.yml.
 Поэтмоу прописывыес каждый раз
 ``` bash
 cd $HOME/subspace
 ```
 
-Просмотр Логов
+просмотр Логов
 ``` bash
 docker-compose logs --tail=1000 -f
 ```
 
-Посмотреть подписанные блоки
+посмотреть подписанные блоки
 ``` bash
-docker-compose logs | grep "signed"
+docker-compse logs | grep "signed"
 ```
 
-Телеметрию нод можно смотреит тут 
+телеметрию нод можно смотреит тут 
 https://telemetry.subspace.network/#/0x332ef6e751e25426e38996c51299dfc53bcd56f40b53dce2b2fc8442ae9c4a74
 Для этого просто прописываем название своей ноды
 
-Токены будут капать на polkadot кошелек по указанному адресу
+токены будут капать на polkadot кошелек по указанному адресу
 https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffarm-rpc.subspace.network#/accounts
 
-Удаление ноды (docker)
+удаление ноды (docker)
 ``` bash
 cd $HOME/subspace
 docker-compose down && docker volume rm $(docker volume ls -q | grep subspace)
